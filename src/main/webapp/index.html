@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>Login Portal</h1>
+<p id="result" style="display: none; color: red; font-weight: bold;"></p>
+<form action="app" method="post">
+    <label for="username">
+        <input type="text" id="username" name="username" placeholder="Username">
+    </label>
+    <label for="password">
+        <input type="password" id="password" name="password">
+    </label>
+    <input type="submit" id="submit" value="Login">
+</form>
+<script type="application/javascript">
+    window.onload = () => {
+        let searchParams = new URLSearchParams(window.location.search);
+        if (searchParams.get('failure') && searchParams.get('failure') === "true") {
+            document.getElementById("result").innerHTML = "Failure to login";
+            document.getElementById("result").style.display = "block";
+        }
+    }
+</script>
+</body>
+</html>
